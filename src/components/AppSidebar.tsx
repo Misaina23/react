@@ -43,8 +43,8 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[11px] uppercase tracking-wider">
-            Navigation
+          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[11px] uppercase tracking-wider sr-only">
+            Menu
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

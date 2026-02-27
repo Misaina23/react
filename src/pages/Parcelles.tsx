@@ -157,8 +157,6 @@ const Parcelles = () => {
                 <TabsContent value="production" className="space-y-4 mt-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div><Label>Estimation (kg)</Label><Input type="number" value={form.estimation} onChange={(e) => setF("estimation", Number(e.target.value))} /></div>
-                    <div><Label>Récolte effectuée (kg)</Label><Input type="number" value={form.recolteEffectue} onChange={(e) => setF("recolteEffectue", Number(e.target.value))} /></div>
-                    <div><Label>Rendement (kg/ha)</Label><Input type="number" value={form.rendement} onChange={(e) => setF("rendement", Number(e.target.value))} /></div>
                     <div><Label>Quantité livrée (kg)</Label><Input type="number" value={form.quantiteLivre} onChange={(e) => setF("quantiteLivre", Number(e.target.value))} /></div>
                   </div>
                 </TabsContent>
