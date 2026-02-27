@@ -25,7 +25,7 @@ const Parcelles = () => {
   const [viewDialog, setViewDialog] = useState<Parcelle | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<Omit<Parcelle, "id">>(emptyParcelle);
-  const [inspectionForm, setInspectionForm] = useState({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "" });
+  const [inspectionForm, setInspectionForm] = useState({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "", recolteEffectue: 0, rendement: 0 });
 
   const filtered = parcelles.filter((p) =>
     `${p.codeUnique} ${p.producteurNom} ${p.culture}`.toLowerCase().includes(search.toLowerCase())
