@@ -104,6 +104,8 @@ const Parcelles = () => {
                 <div><Label>État de la culture</Label><Input value={inspectionForm.etatCulture} onChange={(e) => setInspectionForm({ ...inspectionForm, etatCulture: e.target.value })} /></div>
                 <div><Label>Observations</Label><Textarea value={inspectionForm.observations} onChange={(e) => setInspectionForm({ ...inspectionForm, observations: e.target.value })} /></div>
                 <div><Label>Recommandations</Label><Textarea value={inspectionForm.recommandations} onChange={(e) => setInspectionForm({ ...inspectionForm, recommandations: e.target.value })} /></div>
+                <div><Label>Récolte effectuée (kg)</Label><Input type="number" value={inspectionForm.recolteEffectue} onChange={(e) => setInspectionForm({ ...inspectionForm, recolteEffectue: Number(e.target.value) })} /></div>
+                <div><Label>Rendement (kg/ha)</Label><Input type="number" value={inspectionForm.rendement} onChange={(e) => setInspectionForm({ ...inspectionForm, rendement: Number(e.target.value) })} /></div>
               </div>
               <div className="flex justify-end gap-2 mt-6">
                 <Button variant="outline" onClick={() => setInspectionOpen(false)}>Annuler</Button>
