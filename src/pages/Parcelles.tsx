@@ -68,7 +68,7 @@ const Parcelles = () => {
       return;
     }
     toast.success("Inspection enregistrée avec succès");
-    setInspectionForm({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "" });
+    setInspectionForm({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "", recolteEffectue: 0, rendement: 0 });
     setInspectionOpen(false);
   };
 
