@@ -25,7 +25,7 @@ const Parcelles = () => {
   const [viewDialog, setViewDialog] = useState<Parcelle | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<Omit<Parcelle, "id">>(emptyParcelle);
-  const [inspectionForm, setInspectionForm] = useState({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "" });
+  const [inspectionForm, setInspectionForm] = useState({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "", recolteEffectue: 0, rendement: 0 });
 
   const filtered = parcelles.filter((p) =>
     `${p.codeUnique} ${p.producteurNom} ${p.culture}`.toLowerCase().includes(search.toLowerCase())
@@ -68,7 +68,7 @@ const Parcelles = () => {
       return;
     }
     toast.success("Inspection enregistrée avec succès");
-    setInspectionForm({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "" });
+    setInspectionForm({ parcelleId: "", dateInspection: "", observations: "", etatCulture: "", recommandations: "", recolteEffectue: 0, rendement: 0 });
     setInspectionOpen(false);
   };
 
@@ -104,6 +104,8 @@ const Parcelles = () => {
                 <div><Label>État de la culture</Label><Input value={inspectionForm.etatCulture} onChange={(e) => setInspectionForm({ ...inspectionForm, etatCulture: e.target.value })} /></div>
                 <div><Label>Observations</Label><Textarea value={inspectionForm.observations} onChange={(e) => setInspectionForm({ ...inspectionForm, observations: e.target.value })} /></div>
                 <div><Label>Recommandations</Label><Textarea value={inspectionForm.recommandations} onChange={(e) => setInspectionForm({ ...inspectionForm, recommandations: e.target.value })} /></div>
+                <div><Label>Récolte effectuée (kg)</Label><Input type="number" value={inspectionForm.recolteEffectue} onChange={(e) => setInspectionForm({ ...inspectionForm, recolteEffectue: Number(e.target.value) })} /></div>
+                <div><Label>Rendement (kg/ha)</Label><Input type="number" value={inspectionForm.rendement} onChange={(e) => setInspectionForm({ ...inspectionForm, rendement: Number(e.target.value) })} /></div>
               </div>
               <div className="flex justify-end gap-2 mt-6">
                 <Button variant="outline" onClick={() => setInspectionOpen(false)}>Annuler</Button>
@@ -155,8 +157,6 @@ const Parcelles = () => {
                 <TabsContent value="production" className="space-y-4 mt-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div><Label>Estimation (kg)</Label><Input type="number" value={form.estimation} onChange={(e) => setF("estimation", Number(e.target.value))} /></div>
-                    <div><Label>Récolte effectuée (kg)</Label><Input type="number" value={form.recolteEffectue} onChange={(e) => setF("recolteEffectue", Number(e.target.value))} /></div>
-                    <div><Label>Rendement (kg/ha)</Label><Input type="number" value={form.rendement} onChange={(e) => setF("rendement", Number(e.target.value))} /></div>
                     <div><Label>Quantité livrée (kg)</Label><Input type="number" value={form.quantiteLivre} onChange={(e) => setF("quantiteLivre", Number(e.target.value))} /></div>
                   </div>
                 </TabsContent>

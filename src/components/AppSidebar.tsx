@@ -1,4 +1,4 @@
-import { LayoutDashboard, Users, Map, UserCog, Leaf } from "lucide-react";
+import { LayoutDashboard, Users, Map, UserCog, Anchor } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
@@ -31,7 +31,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-primary/20">
-            <Leaf className="h-5 w-5 text-sidebar-primary" />
+            <Anchor className="h-5 w-5 text-sidebar-primary" />
           </div>
           {!collapsed && (
             <div>
@@ -43,8 +43,8 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[11px] uppercase tracking-wider">
-            Navigation
+          <SidebarGroupLabel className="text-sidebar-foreground/50 text-[11px] uppercase tracking-wider sr-only">
+            Menu
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
