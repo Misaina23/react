@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Producteurs from "./pages/Producteurs";
 import Parcelles from "./pages/Parcelles";
 import Utilisateurs from "./pages/Utilisateurs";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,15 +19,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppLayout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/producteurs" element={<Producteurs />} />
-            <Route path="/parcelles" element={<Parcelles />} />
-            <Route path="/utilisateurs" element={<Utilisateurs />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AppLayout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<AppLayout><Dashboard /></AppLayout>} />
+          <Route path="/producteurs" element={<AppLayout><Producteurs /></AppLayout>} />
+          <Route path="/parcelles" element={<AppLayout><Parcelles /></AppLayout>} />
+          <Route path="/utilisateurs" element={<AppLayout><Utilisateurs /></AppLayout>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

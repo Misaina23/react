@@ -13,6 +13,7 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useState } from "react";
 
 const menuItems = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
@@ -25,17 +26,27 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
+  const [logoError, setLogoError] = useState(false);
 
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-primary/20">
-            <Anchor className="h-5 w-5 text-sidebar-primary" />
-          </div>
+          {!logoError ? (
+            <img
+              src="/logo.jpg"
+              alt="Logo"
+              className="h-9 w-9 rounded-lg object-cover"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-primary/20">
+              <Anchor className="h-5 w-5 text-sidebar-primary" />
+            </div>
+          )}
           {!collapsed && (
             <div>
-              <h2 className="text-sm font-bold text-sidebar-foreground font-display tracking-tight">AgriGest Pro</h2>
+              <h2 className="text-sm font-bold text-sidebar-foreground font-display tracking-tight">VIDEEKO VANILLA</h2>
               <p className="text-[11px] text-sidebar-foreground/60">Gestion Agricole</p>
             </div>
           )}
