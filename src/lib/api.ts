@@ -1,6 +1,6 @@
 // API Configuration for connecting to Laravel backend
 // Using relative path - relies on Vite proxy to forward to backend
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://84.247.166.172:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://84.247.166.172:8081/api';
 
 // Token storage
 const TOKEN_KEY = 'videeko_token';

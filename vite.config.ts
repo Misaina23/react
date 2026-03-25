@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
     },
     proxy: {
       '/api': {
-        target: 'http://84.247.166.172:8000',
+        target: 'http://84.247.166.172:8081',
         changeOrigin: true,
       },
     },
